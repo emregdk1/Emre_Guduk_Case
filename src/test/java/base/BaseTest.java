@@ -15,9 +15,9 @@ public class BaseTest {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
     protected static WebDriver driver;
     public static Actions actions;
-    public static ResourceBundle AccountName;
-    public static ResourceBundle LoginInfo;
+
     public static ResourceBundle FilterParam;
+    public static ResourceBundle Jmeter;
     private static final String JAVA_VERSION = System.getProperty("java.version");
     private static final String PLATFORM = System.getProperty("os.name").toLowerCase();
 
@@ -26,9 +26,8 @@ public class BaseTest {
         logger.info("************************************  BeforeScenario  ************************************");
         logger.info("Test environment: Platform: {}, Driver: {}", PLATFORM, driverType);
         logger.info("Java version: {}", JAVA_VERSION);
-        AccountName = ReadProperties.readProp("AccountName.properties");
-        LoginInfo = ReadProperties.readProp("LoginInfo.properties");
         FilterParam = ReadProperties.readProp("FilterParam.properties");
+        Jmeter = ReadProperties.readProp("Jmeter.properties");
         try {
             driver = Drivers.getDriverType(driverType).getDriver();
             if (driver != null) {
