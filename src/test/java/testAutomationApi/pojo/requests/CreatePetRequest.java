@@ -6,18 +6,15 @@ public class CreatePetRequest {
     private String name;
     private String status;
 
-    // No-args constructor (JSON dönüştürme için gerekli olabilir)
     public CreatePetRequest() {
     }
 
-    // Parametreli constructor
     public CreatePetRequest(int id, String name, String status) {
         this.id = id;
         this.name = name;
         this.status = status;
     }
 
-    // Getter ve Setter'lar
     public int getId() {
         return id;
     }
@@ -42,7 +39,6 @@ public class CreatePetRequest {
         this.status = status;
     }
 
-    // Loglama veya hata ayıklama sırasında faydalı olabilir
     @Override
     public String toString() {
         return "CreatePetRequest{" +

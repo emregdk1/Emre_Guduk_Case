@@ -2,7 +2,6 @@ package testAutomationApi.pojo.requests;
 
 public class DeletePetRequest {
 
-
     private Long id;
 
     public Long getId() {
