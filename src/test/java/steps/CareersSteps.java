@@ -8,8 +8,7 @@ import pages.web.CareersPage;
 import java.util.HashMap;
 import java.util.Map;
 
-import static pages.web.CareersPage.SELECT_DEPARTMENT_BUTTON;
-import static pages.web.CareersPage.SELECT_LOCATION_BUTTON;
+import static pages.web.CareersPage.*;
 
 public class CareersSteps extends BaseSteps {
 
