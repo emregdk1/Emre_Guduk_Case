@@ -1,4 +1,4 @@
-package jmeter;
+package loadTest;
 
 import org.apache.jmeter.assertions.ResponseAssertion;
 import org.apache.jmeter.control.LoopController;
@@ -9,10 +9,11 @@ import org.apache.jmeter.testelement.TestPlan;
 import org.apache.jmeter.util.JMeterUtils;
 import org.apache.jorphan.collections.ListedHashTree;
 
-public class JmeterLoad {
+public class JmeterLoadTest {
 
 
     public static void main(String[] args) throws Exception {
+
         String searchKeyword = "phone";
         String searchUrl = "https://www.n11.com/";
 

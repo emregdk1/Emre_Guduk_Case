@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.target>15</maven.compiler.target>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <remote.webdriver.version>5.4.1</remote.webdriver.version>
         <selenium.version>4.20.0</selenium.version>
@@ -17,7 +17,7 @@
         <google.cloud.vision.version>2.0.0</google.cloud.vision.version>
         <thucydides.version>0.9.275</thucydides.version>
         <guava.version>31.1-jre</guava.version>
-        <rest.assured.version>5.1.1</rest.assured.version>
+        <rest.assured.version>4.5.0</rest.assured.version>
         <javafaker.version>1.0.2</javafaker.version>
         <lombok.version>1.18.28</lombok.version>
         <snakeyaml.version>2.2</snakeyaml.version>
@@ -177,8 +177,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>${maven.compiler.target}</source>
-                    <target>${maven.compiler.target}</target>
+                    <source>15</source>
+                    <target>15</target>
                 </configuration>
             </plugin>
         </plugins>
