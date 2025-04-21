@@ -18,16 +18,19 @@ public class BaseTest {
 
     public static ResourceBundle FilterParam;
     public static ResourceBundle Jmeter;
+
     private static final String JAVA_VERSION = System.getProperty("java.version");
     private static final String PLATFORM = System.getProperty("os.name").toLowerCase();
 
-    @Given("Setup Driver \"(chrome|firefox|mobileWeb)\"$")
+    @Given("Setup Driver {string}")
     public void setUp(String driverType) {
         logger.info("************************************  BeforeScenario  ************************************");
         logger.info("Test environment: Platform: {}, Driver: {}", PLATFORM, driverType);
         logger.info("Java version: {}", JAVA_VERSION);
+
         FilterParam = ReadProperties.readProp("FilterParam.properties");
         Jmeter = ReadProperties.readProp("Jmeter.properties");
+
         try {
             driver = Drivers.getDriverType(driverType).getDriver();
             if (driver != null) {
@@ -41,12 +44,10 @@ public class BaseTest {
         }
     }
 
-
-
     @After
     public void tearDown() {
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
             logger.info("WebDriver closed.");
         }
     }

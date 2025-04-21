@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = "",
+        tags = "@Deneme",
         plugin = {"pretty"},
         features = "classpath:features",
         glue = {

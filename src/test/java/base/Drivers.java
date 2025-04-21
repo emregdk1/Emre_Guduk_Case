@@ -16,7 +16,8 @@ public enum Drivers {
         public WebDriver getDriver() {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-            chromeOptions.addArguments("--lang=tr",
+            chromeOptions.addArguments(
+                    "--lang=tr",
                     "--disable-popup-blocking",
                     "--disable-blink-features=AutomationControlled",
                     "--disable-gpu",
@@ -42,7 +43,8 @@ public enum Drivers {
         @Override
         public WebDriver getDriver() {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.addArguments("--lang=tr",
+            firefoxOptions.addArguments(
+                    "--lang=tr",
                     "--disable-popup-blocking",
                     "--disable-gpu",
                     "--no-sandbox",
@@ -51,32 +53,6 @@ public enum Drivers {
                     "--disable-notifications"
             );
             return new FirefoxDriver(firefoxOptions);
-        }
-    },
-
-    MOBILEWEB {
-        @Override
-        public WebDriver getDriver() {
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-            chromeOptions.addArguments("--lang=tr",
-                    "--disable-popup-blocking",
-                    "--disable-blink-features=AutomationControlled",
-                    "--disable-gpu",
-                    "--no-sandbox",
-                    "--disable-infobars",
-                    "--ignore-certificate-errors",
-                    "--disable-translate",
-                    "--disable-extensions",
-                    "--disable-notifications",
-                    "--remote-allow-origins=*"
-            );
-
-            Map<String, Object> mWebParam = new HashMap<>();
-            mWebParam.put("deviceName", "iPhone 12 Pro");
-            chromeOptions.setExperimentalOption("mobileEmulation", mWebParam);
-
-            return new ChromeDriver(chromeOptions);
         }
     };
 
