@@ -6,8 +6,6 @@ import utils.ElementHelper;
 
 public class CareersPage extends ElementHelper {
 
-    //private final String careersQAUrl = "https://useinsider.com/careers/quality-assurance/";
-
     public void scrollOurLocation() {
         scrollByJs(CareersModel.ourLocationText);
         checkIfElementExistLogCurrentText(CareersModel.ourLocationText);

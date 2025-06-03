@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import utils.ElementHelper;
 public class OpenPositionsPage extends ElementHelper {
 
-    //private final String checkOpenPositionsPage = "useinsider.com/careers/open-positions/?department=qualityassurance";
-
     public void isLoadedCareersOpenPositionsUrl() {
         String checkOpenPositionsPage = BaseTest.Config.getString("checkOpenPositionsPage");
         shouldSee(checkOpenPositionsPage);

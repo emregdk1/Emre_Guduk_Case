@@ -6,8 +6,6 @@ import utils.ElementHelper;
 
 public class QualityAssurancePage extends ElementHelper {
 
-    //private final String checkQAPage = "useinsider.com/careers/quality-assurance/";
-
     public void isLoadedCareersQAUrl() {
         String checkQAPage = BaseTest.Config.getString("checkQAPage");
         shouldSee(checkQAPage);

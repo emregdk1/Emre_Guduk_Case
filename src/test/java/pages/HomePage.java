@@ -6,8 +6,6 @@ import utils.ElementHelper;
 
 
 public class HomePage extends ElementHelper {
-    //private final String checkUrlCareers = "useinsider.com/careers/";
-    //private final String checkUrlHomePage = "useinsider.com";
 
     public void goToHomePageUrl() {
         String homePageUrl = BaseTest.Config.getString("homePageUrl");

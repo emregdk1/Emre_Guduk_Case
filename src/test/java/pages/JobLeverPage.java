@@ -6,8 +6,6 @@ import utils.ElementHelper;
 
 public class JobLeverPage extends ElementHelper {
 
-    //private final String checkJobsLever = "jobs.lever.co/useinsider";
-
     public void isLoadedJobsLever() {
         String checkJobsLever = BaseTest.Config.getString("checkJobsLever");
         shouldSee(checkJobsLever);
