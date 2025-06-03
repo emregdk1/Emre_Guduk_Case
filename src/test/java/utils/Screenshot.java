@@ -7,31 +7,27 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Screenshot {
 
-    public static void takeScreenshot(WebDriver driver, String fileName) {
+    public static String takeScreenshot(WebDriver driver, String screenshotName) {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
+        String screenshotsDir = System.getProperty("user.dir") + "/test-output/screenshots/";
+        String destination = screenshotsDir + screenshotName + "_" + timestamp + ".png";
+
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            // Screenshot alınır
-            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            Files.createDirectories(new File(screenshotsDir).toPath());
 
-            // Hedef klasörü oluştur (yoksa)
-            Path screenshotsDir = Paths.get("screenshots");
-            if (!Files.exists(screenshotsDir)) {
-                Files.createDirectories(screenshotsDir);
-            }
-
-            // Dosya yolu belirle ve kaydet
-            Path dest = screenshotsDir.resolve(fileName + ".png");
-            Files.copy(src.toPath(), dest);
-
-            System.out.println("📸 Screenshot saved to: " + dest.toAbsolutePath());
+            Files.copy(src.toPath(), new File(destination).toPath());
         } catch (IOException e) {
-            System.err.println("❌ Failed to save screenshot: " + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("❌ Screenshot error: " + e.getMessage());
+            System.err.println("Failed to save screenshot: " + e.getMessage());
+            e.printStackTrace();
         }
+
+        return destination;
     }
 }

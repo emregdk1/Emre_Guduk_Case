@@ -1,56 +1,68 @@
 package base;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
+import utils.ElementHelper;
+import utils.ExtentManager;
 import utils.ReadProperties;
 
-import java.time.Duration;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class BaseTest {
-
+    private ElementHelper elementHelper;
     protected final Logger logger = LoggerFactory.getLogger(getClass());
-    protected static WebDriver driver;
-    public static Actions action;
 
     public static ResourceBundle FilterParam;
-    private static final String JAVA_VERSION = System.getProperty("java.version");
-    private static final String PLATFORM = System.getProperty("os.name").toLowerCase();
+    public static ResourceBundle Config;
+
+    protected static ExtentReports extent;
+    protected static ExtentTest test;
 
     @Parameters("browser")
-    @BeforeMethod
+    @BeforeClass(alwaysRun = true)
     public void setupDriver(@Optional("chrome") String driverType) {
-        logger.info("************************************  BeforeMethod  ************************************");
-        logger.info("Test environment: Platform: {}, Driver: {}", PLATFORM, driverType);
-        logger.info("Java version: {}", JAVA_VERSION);
+        readProperties();
+        elementHelper = new ElementHelper();
+        elementHelper.setUp(driverType);
+    }
 
-        FilterParam = ReadProperties.readProp("FilterParam.properties");
+    static {
+        Locale.setDefault(new Locale("en", "US"));
+    }
 
-        try {
-            driver = Drivers.getDriverType(driverType).getDriver();
-            if (driver != null) {
-                driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-                driver.manage().window().maximize();
-                action = new Actions(driver);
-            }
-        } catch (IllegalArgumentException e) {
-            logger.error("Failed to initialize the driver. Unsupported type: {}", driverType, e);
-            throw e;
+    @BeforeSuite(alwaysRun = true)
+    public void setUpExtent() {
+        if (extent == null) {
+            extent = ExtentManager.getInstance();
         }
     }
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            //driver.quit();
-            logger.info("WebDriver closed.");
+    @AfterSuite(alwaysRun = true)
+    public void tearDownExtent() {
+        if (extent != null) {
+            extent.flush();
         }
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() {
+        if (getDriver() != null) {
+            logger.info("Driver will be closed");
+            elementHelper.tearDown();
+        }
+    }
+
+    public static void readProperties() {
+        FilterParam = ReadProperties.readProp("FilterParam.properties");
+        Config = ReadProperties.readProp("Config.properties");
     }
 
     public static WebDriver getDriver() {
-        return driver;
+        return ElementHelper.getDriver();
     }
 }
