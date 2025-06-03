@@ -10,6 +10,7 @@ import utils.ElementHelper;
 import utils.ExtentManager;
 import utils.ReadProperties;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -36,7 +37,7 @@ public class BaseTest {
     }
 
     @BeforeSuite(alwaysRun = true)
-    public void setUpExtent() {
+    public void setUpExtent() throws IOException {
         if (extent == null) {
             extent = ExtentManager.getInstance();
         }

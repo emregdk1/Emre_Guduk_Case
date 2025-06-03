@@ -1,0 +1,142 @@
+<extentreports>
+    <configuration>
+        <theme>DARK</theme>
+        <encoding>UTF-8</encoding>
+        <documentTitle>Insider Automation Summary Report</documentTitle>
+        <reportName>🚀 Insider Premium Test Automation Report 🚀</reportName>
+        <css>
+            <![CDATA[
+
+                /* Genel yazı fontu */
+
+                body {
+
+                    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+                    background-color: #0e0e0e;
+
+                }
+
+                /* Navbar */
+
+                .navbar {
+
+                    background-color: #1a1a1a !important;
+
+                    border-bottom: 3px solid #7e3ff2 !important;
+
+                }
+
+                /* Dashboard kartları */
+
+                .card-panel {
+
+                    background-color: #1c1c1c !important;
+
+                    color: #e0e0e0 !important;
+
+                    box-shadow: 0 4px 8px rgba(126, 63, 242, 0.4);
+
+                }
+
+                /* Pie chart yazıları */
+
+                .pie-chart .text {
+
+                    fill: #e0e0e0 !important;
+
+                    font-weight: bold;
+
+                }
+
+                /* Header - başlık */
+
+                .extent-header {
+
+                    font-size: 30px !important;
+
+                    color: #7e3ff2 !important; /* Mor Başlık */
+
+                    text-shadow: 2px 2px 4px #000;
+
+                }
+
+                /* Step Badge'ler */
+
+                .test-content .step-details .badge {
+
+                    background-color: #7e3ff2 !important;
+
+                    color: #fff !important;
+
+                    font-size: 14px !important;
+
+                    padding: 10px 20px;
+
+                    border-radius: 20px;
+
+                }
+
+                /* Test Kategorileri */
+
+                .test-attributes .badge {
+
+                    background-color: #4b0082 !important;
+
+                    color: #fff !important;
+
+                }
+
+                /* Screenshot görünümü */
+
+                .screenshot img {
+
+                    max-width: 300px;
+
+                    height: auto;
+
+                    border: 2px solid #7e3ff2;
+
+                    margin: 10px 0;
+
+                    border-radius: 8px;
+
+                    transition: transform 0.3s ease;
+
+                }
+
+                .screenshot img:hover {
+
+                    transform: scale(1.05);
+
+                    box-shadow: 0 4px 8px rgba(126, 63, 242, 0.6);
+
+                }
+
+                /* Tablo ve liste yazıları */
+
+                table, th, td {
+
+                    color: #ddd !important;
+
+                    border-color: #444 !important;
+
+                }
+
+                /* Footer */
+
+                .footer {
+
+                    background-color: #1a1a1a;
+
+                    color: #7e3ff2;
+
+                    font-size: 12px;
+
+                }
+
+            ]]>
+        </css>
+    </configuration>
+</extentreports>
+
