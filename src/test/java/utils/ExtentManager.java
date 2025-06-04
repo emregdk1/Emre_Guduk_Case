@@ -30,9 +30,6 @@ public class ExtentManager {
         reporter.config().setDocumentTitle("Automation Execution Summary - Insider");
         reporter.config().setTheme(Theme.DARK);
 
-        String customCssPath = System.getProperty("user.dir") + "/src/test/resources/custom-spark.xml";
-        reporter.loadXMLConfig(customCssPath);
-
         extent = new ExtentReports();
         extent.attachReporter(reporter);
 
